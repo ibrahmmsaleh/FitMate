@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ t('app.tagline') }}{% endblock %}
+{% block content %}
+  <section class="hero">
+    <h1>{{ t('home.title') }}</h1>
+    <p class="lead">{{ t('home.lead') }}</p>
+    <div class="cta">
+      {% if user %}
+        <a class="btn" href="{{ url_for('dashboard') }}">{{ t('home.cta.dashboard') }}</a>
+      {% else %}
+        <a class="btn" href="{{ url_for('register') }}">{{ t('home.cta.register') }}</a>
+        <a class="btn secondary" href="{{ url_for('login') }}">{{ t('nav.login') }}</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="board" aria-labelledby="sample-title">
+    <h2 id="sample-title">{{ t('home.sample.title') }}</h2>
+    <p class="muted small">{{ t('home.sample.note') }}</p>
+    {{ m.week_strip(sample.days) }}
+    <h3>{{ t('weekday.' ~ first_session.index) }}: {{ t('session.' ~ first_session.session) }}</h3>
+    {{ m.session_table(first_session.entries) }}
+  </section>
+
+  <section aria-labelledby="steps-title">
+    <h2 id="steps-title">{{ t('home.steps.title') }}</h2>
+    <ol class="steps">
+      <li><h3>{{ t('home.step1.title') }}</h3><p>{{ t('home.step1.text') }}</p></li>
+      <li><h3>{{ t('home.step2.title') }}</h3><p>{{ t('home.step2.text') }}</p></li>
+      <li><h3>{{ t('home.step3.title') }}</h3><p>{{ t('home.step3.text') }}</p></li>
+    </ol>
+    <p class="muted small" style="margin-top:1.5rem">{{ t('home.note') }}</p>
+  </section>
+{% endblock %}

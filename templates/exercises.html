@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ t('ex.title') }}{% endblock %}
+{% block content %}
+  <div class="page-head"><h1>{{ t('ex.title') }}</h1></div>
+
+  <form class="filters" method="get" action="{{ url_for('exercises') }}">
+    <div class="field">
+      <label for="q">{{ t('ex.search') }}</label>
+      <input id="q" type="search" name="q" value="{{ q }}">
+    </div>
+    <div class="field">
+      <label for="muscle">{{ t('ex.muscle') }}</label>
+      <select id="muscle" name="muscle">
+        <option value="">{{ t('all') }}</option>
+        {% for opt in muscles %}<option value="{{ opt }}"{% if muscle == opt %} selected{% endif %}>{{ t('muscle.' ~ opt) }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label for="equipment">{{ t('ex.equipment') }}</label>
+      <select id="equipment" name="equipment">
+        <option value="">{{ t('all') }}</option>
+        {% for opt in equipment %}<option value="{{ opt }}"{% if equip == opt %} selected{% endif %}>{{ t('equip.' ~ opt) }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label for="level">{{ t('ex.level') }}</label>
+      <select id="level" name="level">
+        <option value="">{{ t('all') }}</option>
+        {% for opt in levels %}<option value="{{ opt }}"{% if level == opt %} selected{% endif %}>{{ t('level.' ~ opt) }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">{{ t('apply') }}</button>
+      <a href="{{ url_for('exercises') }}">{{ t('reset') }}</a>
+    </div>
+  </form>
+
+  <p class="muted">{{ t('ex.count', n=items|length) }}</p>
+  {% if items %}
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>{{ t('program.col.exercise') }}</th><th>{{ t('ex.muscle') }}</th><th>{{ t('ex.equipment') }}</th><th>{{ t('ex.level') }}</th>
+        </tr></thead>
+        <tbody>
+          {% for ex in items %}
+            <tr>
+              <td><a class="ex-link" href="{{ url_for('exercise_detail', exercise_id=ex.id) }}">{{ ex.name[lang] }}</a></td>
+              <td>{{ t('muscle.' ~ ex.muscle) }}</td>
+              <td>{{ t('equip.' ~ ex.equipment) }}</td>
+              <td>{{ t('level.' ~ ex.level) }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>{{ t('ex.none') }}</p>
+  {% endif %}
+{% endblock %}

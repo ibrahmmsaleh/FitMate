@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ t('nav.dashboard') }}{% endblock %}
+{% block content %}
+  <div class="page-head">
+    <h1>{{ t('dash.hello', name=user.name) }}</h1>
+  </div>
+
+  {{ m.week_strip(program.days, today_index) }}
+
+  <div class="grid-2" style="margin-top:2rem">
+    <section class="panel" aria-labelledby="today-title">
+      <h2 id="today-title">{{ t('dash.today') }}</h2>
+      {% if today_day.session %}
+        <p><strong>{{ t('session.' ~ today_day.session) }}</strong>.
+          {{ t('dash.exercises_count', n=today_day.entries|length, min=profile.minutes) }}</p>
+        <ul class="list-plain">
+          {% for e in today_day.entries %}
+            <li>
+              <a class="ex-link" href="{{ url_for('exercise_detail', exercise_id=e.exercise.id) }}">{{ e.exercise.name[lang] }}</a>
+              <span class="muted">{{ e.sets }} × {{ e.reps }}{% if e.unit == 'sec' %} {{ t('unit.sec') }}{% endif %}</span>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="cta">
+          <a class="btn" href="{{ url_for('log') }}">{{ t('dash.start') }}</a>
+          <a class="btn secondary" href="{{ url_for('program') }}">{{ t('dash.view_program') }}</a>
+        </div>
+      {% else %}
+        <p>{{ t('dash.rest_today') }}</p>
+        <a class="btn secondary" href="{{ url_for('program') }}">{{ t('dash.view_program') }}</a>
+      {% endif %}
+    </section>
+
+    <div class="stack">
+      <section class="panel" aria-labelledby="week-title">
+        <h2 id="week-title">{{ t('dash.week') }}</h2>
+        <div class="stat">{{ done }}/{{ planned }}</div>
+        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ percent }}" aria-label="{{ t('dash.week_progress', done=done, planned=planned) }}"><span style="width: {{ percent }}%"></span></div>
+        <p class="muted small">{{ t('dash.week_progress', done=done, planned=planned) }}</p>
+      </section>
+
+      <section class="panel" aria-labelledby="weight-title">
+        <h2 id="weight-title">{{ t('dash.weight') }}</h2>
+        {% if weight_info %}
+          <div class="stat">{{ weight_info.latest.weight_kg }} {{ t('unit.kg') }}</div>
+          {% if weight_info.delta %}
+            <p class="muted small">{{ t('dash.weight_change', delta=weight_info.delta, date=fmt_date(weight_info.first_date)) }}</p>
+          {% endif %}
+        {% else %}
+          <p class="muted">{{ t('dash.weight_none') }}</p>
+        {% endif %}
+        <a class="btn small secondary" href="{{ url_for('progress') }}">{{ t('dash.weight_add') }}</a>
+      </section>
+
+      <section class="panel" aria-labelledby="last-title">
+        <h2 id="last-title">{{ t('dash.last') }}</h2>
+        {% if last_log %}
+          <p><strong>{{ exercise_label(last_log.exercise_id) }}</strong><br>
+            <span class="muted">{{ fmt_date(last_log.date) }}: {{ last_log.sets }} × {{ last_log.reps }}{% if last_log.weight_kg > 0 %}, {{ last_log.weight_kg }} {{ t('unit.kg') }}{% endif %}</span></p>
+        {% else %}
+          <p class="muted">{{ t('dash.last_none') }}</p>
+        {% endif %}
+      </section>
+    </div>
+  </div>
+{% endblock %}

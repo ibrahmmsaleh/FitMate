@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ t('profile.title') }}{% endblock %}
+{% block content %}
+  <div class="page-head">
+    <h1>{{ t('profile.title') }}</h1>
+    <p>{{ t('profile.lead') }}</p>
+  </div>
+  <form class="form" method="post" action="{{ url_for('profile') }}" novalidate>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="row">
+      {{ m.input('age', t('profile.age'), values.get('age'), errors, extra='inputmode="numeric" required') }}
+      {{ m.input('height_cm', t('profile.height'), values.get('height_cm'), errors, extra='inputmode="decimal" required') }}
+      {{ m.input('weight_kg', t('profile.weight'), values.get('weight_kg'), errors, extra='inputmode="decimal" required') }}
+    </div>
+    {{ m.choices('goal', t('profile.goal'), goals, values.get('goal'), errors, 'goal.') }}
+    {{ m.choices('level', t('profile.level'), levels, values.get('level'), errors, 'level.', hint=t('profile.level_hint')) }}
+    {{ m.choices('equipment', t('profile.equipment'), equipment, values.get('equipment'), errors, 'equip.') }}
+    {{ m.choices('days', t('profile.days'), [2, 3, 4, 5, 6], values.get('days'), errors, '') }}
+    {{ m.choices('minutes', t('profile.minutes'), minutes, values.get('minutes'), errors, '', suffix='unit.min') }}
+    <div class="field">
+      <label class="check">
+        <input type="checkbox" name="has_condition"{% if values.get('has_condition') %} checked{% endif %}>
+        <span>{{ t('profile.has_condition') }}</span>
+      </label>
+    </div>
+    <button class="btn" type="submit">{{ t('profile.save') }}</button>
+  </form>
+
+  <section class="panel" style="max-width:640px; margin-top:3rem">
+    <h2>{{ t('profile.danger.title') }}</h2>
+    <p>{{ t('profile.danger.text') }}</p>
+    <form method="post" action="{{ url_for('delete_account') }}" onsubmit='return confirm({{ t("profile.danger.confirm")|tojson }})'>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button class="btn danger" type="submit">{{ t('profile.danger.button') }}</button>
+    </form>
+  </section>
+{% endblock %}

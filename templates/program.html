@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ t('program.title') }}{% endblock %}
+{% block content %}
+  <div class="page-head">
+    <h1>{{ t('program.title') }}</h1>
+    <p>{{ t('program.lead', days=profile.days, goal=t('goal.' ~ profile.goal), level=t('level.' ~ profile.level)) }}</p>
+  </div>
+
+  {% if profile.has_condition %}
+    <div class="notice" role="alert">{{ t('program.condition_warning') }}</div>
+  {% endif %}
+
+  {{ m.week_strip(program.days, today_index, link=true) }}
+
+  {% for day in program.days if day.session %}
+    <section class="session" id="day-{{ day.index }}" aria-labelledby="h-{{ day.index }}">
+      <div class="session-head">
+        <h3 id="h-{{ day.index }}">{{ t('weekday.' ~ day.index) }}: {{ t('session.' ~ day.session) }}</h3>
+        {% if day.index == today_index %}<span class="tape">{{ t('today') }}</span>{% endif %}
+      </div>
+      {{ m.session_table(day.entries, with_links=true) }}
+      {% if day.entries|length < expected %}
+        <p class="muted small" style="margin-top:.6rem">{{ t('program.few', n=day.entries|length) }}</p>
+      {% endif %}
+    </section>
+  {% endfor %}
+
+  <p class="muted" style="margin-top:2rem">
+    {% for day in program.days if not day.session %}{{ t('weekday.' ~ day.index) }}{% if not loop.last %}, {% endif %}{% endfor %}:
+    {{ t('session.rest') }}. {{ t('program.rest_text') }}
+  </p>
+  <p>{{ t('program.warmup') }}</p>
+  <p>{{ t('program.progression') }}</p>
+{% endblock %}

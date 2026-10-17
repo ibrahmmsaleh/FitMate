@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ ex.name[lang] }}{% endblock %}
+{% block content %}
+  <div class="page-head">
+    <p class="small"><a href="{{ url_for('exercises') }}">{{ t('ex.back') }}</a></p>
+    <h1>{{ ex.name[lang] }}</h1>
+    <p>
+      <span class="tag">{{ t('muscle.' ~ ex.muscle) }}</span>
+      <span class="tag">{{ t('equip.' ~ ex.equipment) }}</span>
+      <span class="tag">{{ t('level.' ~ ex.level) }}</span>
+      <span class="tag">{{ t('kind.' ~ ex.kind) }}</span>
+    </p>
+  </div>
+
+  <h2 style="margin-top:1rem">{{ t('ex.how') }}</h2>
+  <p>{{ ex.desc[lang] }}</p>
+  {% if ex.timed %}<p class="muted">{{ t('ex.timed') }}</p>{% endif %}
+  <p><a class="btn" href="{{ url_for('log', exercise=ex.id) }}">{{ t('ex.log') }}</a></p>
+
+  <h2>{{ t('ex.history') }}</h2>
+  {% if history %}
+    {% if best %}<p><strong>{{ t('ex.best', w=best) }}</strong></p>{% endif %}
+    <div class="table-wrap"><table>
+      <thead><tr><th>{{ t('log.col.date') }}</th><th>{{ t('log.col.result') }}</th></tr></thead>
+      <tbody>
+        {% for row in history %}
+          <tr>
+            <td>{{ fmt_date(row.date) }}</td>
+            <td>{{ row.sets }} × {{ row.reps }}{% if row.weight_kg > 0 %}, {{ row.weight_kg }} {{ t('unit.kg') }}{% endif %}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+  {% else %}
+    <p class="muted">{{ t('ex.history_none') }}</p>
+  {% endif %}
+{% endblock %}

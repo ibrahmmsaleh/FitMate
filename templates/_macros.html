@@ -1,0 +1,75 @@
+{# Potongan template yang dipakai ulang. Diimpor dengan: {% import "_macros.html" as m with context %} #}
+
+{% macro err(errors, name) %}
+  {% if errors.get(name) %}<p class="field-error" id="err-{{ name }}">{{ t(errors[name]) }}</p>{% endif %}
+{% endmacro %}
+
+{% macro input(name, label, value, errors, type='text', hint='', extra='') %}
+  <div class="field{% if errors.get(name) %} has-error{% endif %}">
+    <label for="f-{{ name }}">{{ label }}</label>
+    <input id="f-{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ '' if value is none else value }}" {{ extra|safe }}{% if errors.get(name) %} aria-invalid="true" aria-describedby="err-{{ name }}"{% endif %}>
+    {% if hint %}<p class="hint">{{ hint }}</p>{% endif %}
+    {{ err(errors, name) }}
+  </div>
+{% endmacro %}
+
+{% macro choices(name, legend, options, current, errors, prefix, hint='', suffix='') %}
+  <fieldset class="field{% if errors.get(name) %} has-error{% endif %}">
+    <legend>{{ legend }}</legend>
+    <div class="choices">
+      {% for opt in options %}
+        <label class="choice">
+          <input type="radio" name="{{ name }}" value="{{ opt }}"{% if current|string == opt|string %} checked{% endif %}>
+          <span>{% if prefix %}{{ t(prefix ~ opt) }}{% else %}{{ opt }}{% endif %}{% if suffix %} {{ t(suffix) }}{% endif %}</span>
+        </label>
+      {% endfor %}
+    </div>
+    {% if hint %}<p class="hint">{{ hint }}</p>{% endif %}
+    {{ err(errors, name) }}
+  </fieldset>
+{% endmacro %}
+
+{% macro week_strip(days, today_index=none, link=false) %}
+  <ol class="week" aria-label="{{ t('week.aria') }}">
+    {% for d in days %}
+      <li class="day {{ 'is-on' if d.session else 'is-off' }}{{ ' is-today' if d.index == today_index else '' }}">
+        {% if link and d.session %}<a class="day-link" href="#day-{{ d.index }}">{% else %}<div class="day-link">{% endif %}
+          <span class="day-name">{{ t('weekday.short.' ~ d.index) }}</span>
+          <span class="day-type">{{ t('session.' ~ d.session) if d.session else t('session.rest') }}</span>
+          {% if d.index == today_index %}<span class="tape">{{ t('today') }}</span>{% endif %}
+        {% if link and d.session %}</a>{% else %}</div>{% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+{% endmacro %}
+
+{% macro session_table(entries, with_links=false) %}
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>{{ t('program.col.exercise') }}</th>
+          <th class="num">{{ t('program.col.sets') }}</th>
+          <th class="num">{{ t('program.col.reps') }}</th>
+          <th class="num">{{ t('program.col.rest') }}</th>
+          {% if with_links %}<th class="col-log"><span class="visually-hidden">{{ t('program.log') }}</span></th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in entries %}
+          <tr>
+            <td>
+              {% if with_links %}<a class="ex-link" href="{{ url_for('exercise_detail', exercise_id=e.exercise.id) }}">{{ e.exercise.name[lang] }}</a>
+              {% else %}<strong>{{ e.exercise.name[lang] }}</strong>{% endif %}
+              <div class="muted small">{{ t('muscle.' ~ e.exercise.muscle) }}</div>
+            </td>
+            <td class="num">{{ e.sets }}</td>
+            <td class="num">{{ e.reps }}{% if e.unit == 'sec' %} {{ t('unit.sec') }}{% endif %}</td>
+            <td class="num">{{ e.rest }} {{ t('unit.sec') }}</td>
+            {% if with_links %}<td class="col-log"><a class="btn small secondary" href="{{ url_for('log', exercise=e.exercise.id) }}">{{ t('program.log') }}</a></td>{% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endmacro %}

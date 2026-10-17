@@ -1,0 +1,937 @@
+[
+  {
+    "id": "wall_push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Push-up di dinding",
+      "en": "Wall push-up"
+    },
+    "desc": {
+      "id": "Berdiri menghadap dinding dengan tangan setinggi dada. Tekuk siku sampai dada mendekati dinding, lalu dorong kembali.",
+      "en": "Stand facing a wall with your hands at chest height. Bend your elbows until your chest nears the wall, then push back."
+    }
+  },
+  {
+    "id": "incline_push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Push-up miring",
+      "en": "Incline push-up"
+    },
+    "desc": {
+      "id": "Letakkan tangan di meja atau bangku yang kokoh dan jaga badan lurus dari kepala ke tumit. Turunkan dada ke tepi, lalu dorong naik.",
+      "en": "Place your hands on a sturdy table or bench and keep your body in a straight line. Lower your chest to the edge, then press up."
+    }
+  },
+  {
+    "id": "knee_push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Push-up lutut",
+      "en": "Knee push-up"
+    },
+    "desc": {
+      "id": "Bertumpu pada lutut dan telapak tangan dengan badan lurus dari lutut ke kepala. Turunkan dada mendekati lantai, lalu dorong naik.",
+      "en": "Support yourself on your knees and palms with a straight line from knees to head. Lower your chest toward the floor, then press up."
+    }
+  },
+  {
+    "id": "close_knee_push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "triceps",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Push-up lutut tangan rapat",
+      "en": "Close-grip knee push-up"
+    },
+    "desc": {
+      "id": "Seperti push-up lutut, tetapi tangan selebar bahu atau sedikit lebih sempit dan siku dekat badan. Melatih trisep.",
+      "en": "Like a knee push-up, but with hands shoulder-width or slightly narrower and elbows close to your body. Targets the triceps."
+    }
+  },
+  {
+    "id": "push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Push-up",
+      "en": "Push-up"
+    },
+    "desc": {
+      "id": "Badan lurus dari kepala ke tumit, tangan sedikit lebih lebar dari bahu. Turunkan dada mendekati lantai tanpa melengkungkan punggung, lalu dorong naik.",
+      "en": "Keep a straight line from head to heels with hands slightly wider than your shoulders. Lower your chest toward the floor without sagging your back, then press up."
+    }
+  },
+  {
+    "id": "bench_dip",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "triceps",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Dip di kursi",
+      "en": "Bench dip"
+    },
+    "desc": {
+      "id": "Tumpukan tangan pada tepi kursi yang kokoh, kaki di depan. Tekuk siku sampai sekitar 90 derajat, lalu dorong naik. Hentikan jika bahu terasa nyeri.",
+      "en": "Rest your hands on the edge of a sturdy chair with your feet out front. Bend your elbows to about 90 degrees, then press up. Stop if your shoulders hurt."
+    }
+  },
+  {
+    "id": "pike_push_up",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "shoulders",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Pike push-up",
+      "en": "Pike push-up"
+    },
+    "desc": {
+      "id": "Angkat pinggul tinggi sehingga badan membentuk huruf V terbalik. Tekuk siku untuk menurunkan kepala ke arah lantai, lalu dorong naik. Melatih bahu.",
+      "en": "Lift your hips so your body forms an upside-down V. Bend your elbows to lower your head toward the floor, then press back up. Targets the shoulders."
+    }
+  },
+  {
+    "id": "db_floor_press",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Floor press dumbbell",
+      "en": "Dumbbell floor press"
+    },
+    "desc": {
+      "id": "Berbaring telentang dengan dumbbell di atas dada. Turunkan siku sampai menyentuh lantai, lalu dorong ke atas.",
+      "en": "Lie on your back holding dumbbells above your chest. Lower your elbows until they touch the floor, then press up."
+    }
+  },
+  {
+    "id": "db_shoulder_press",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "shoulders",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Shoulder press dumbbell",
+      "en": "Dumbbell shoulder press"
+    },
+    "desc": {
+      "id": "Duduk atau berdiri tegak dengan dumbbell setinggi bahu. Dorong ke atas sampai lengan hampir lurus, lalu turunkan perlahan.",
+      "en": "Sit or stand tall with dumbbells at shoulder height. Press overhead until your arms are almost straight, then lower slowly."
+    }
+  },
+  {
+    "id": "db_lateral_raise",
+    "kind": "isolation",
+    "category": "push",
+    "muscle": "shoulders",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Lateral raise dumbbell",
+      "en": "Dumbbell lateral raise"
+    },
+    "desc": {
+      "id": "Berdiri dengan dumbbell di sisi badan. Angkat lengan ke samping sampai setinggi bahu dengan siku sedikit menekuk, lalu turunkan perlahan. Pakai beban ringan.",
+      "en": "Stand with dumbbells at your sides. Raise your arms out to shoulder height with soft elbows, then lower slowly. Use a light weight."
+    }
+  },
+  {
+    "id": "db_triceps_extension",
+    "kind": "isolation",
+    "category": "push",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Ekstensi trisep dumbbell",
+      "en": "Overhead triceps extension"
+    },
+    "desc": {
+      "id": "Pegang satu dumbbell dengan dua tangan di atas kepala. Tekuk siku untuk menurunkannya ke belakang kepala, lalu luruskan kembali dengan siku tetap dekat kepala.",
+      "en": "Hold one dumbbell with both hands overhead. Bend your elbows to lower it behind your head, then straighten again, keeping your elbows close to your head."
+    }
+  },
+  {
+    "id": "chest_press_machine",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Chest press mesin",
+      "en": "Machine chest press"
+    },
+    "desc": {
+      "id": "Atur jok agar pegangan sejajar dada. Dorong ke depan sampai lengan hampir lurus, lalu kembali perlahan.",
+      "en": "Adjust the seat so the handles line up with your chest. Press forward until your arms are almost straight, then return slowly."
+    }
+  },
+  {
+    "id": "shoulder_press_machine",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "shoulders",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Shoulder press mesin",
+      "en": "Machine shoulder press"
+    },
+    "desc": {
+      "id": "Atur jok agar pegangan setinggi bahu. Dorong ke atas tanpa mengangkat bahu ke telinga, lalu turunkan perlahan.",
+      "en": "Set the seat so the handles start at shoulder height. Press up without shrugging toward your ears, then lower slowly."
+    }
+  },
+  {
+    "id": "triceps_pushdown",
+    "kind": "isolation",
+    "category": "push",
+    "muscle": "triceps",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Triceps pushdown kabel",
+      "en": "Cable triceps pushdown"
+    },
+    "desc": {
+      "id": "Berdiri di depan kabel atas dengan siku menempel di sisi badan. Dorong pegangan ke bawah sampai lengan lurus, lalu kembali perlahan.",
+      "en": "Stand facing a high cable with your elbows pinned to your sides. Push the handle down until your arms are straight, then return slowly."
+    }
+  },
+  {
+    "id": "bench_press",
+    "kind": "compound",
+    "category": "push",
+    "muscle": "chest",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Bench press barbel",
+      "en": "Barbell bench press"
+    },
+    "desc": {
+      "id": "Berbaring di bangku dengan kaki menapak lantai. Turunkan barbel ke dada bagian tengah, lalu dorong naik. Gunakan pengaman atau minta bantuan spotter.",
+      "en": "Lie on a bench with your feet flat on the floor. Lower the barbell to mid-chest, then press up. Use safety bars or a spotter."
+    }
+  },
+  {
+    "id": "superman",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Superman",
+      "en": "Superman"
+    },
+    "desc": {
+      "id": "Berbaring telungkup dengan lengan lurus ke depan. Angkat lengan dan kaki sedikit dari lantai, tahan sebentar, lalu turunkan.",
+      "en": "Lie face down with your arms extended forward. Lift your arms and legs slightly off the floor, hold briefly, then lower."
+    }
+  },
+  {
+    "id": "reverse_snow_angel",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Reverse snow angel",
+      "en": "Reverse snow angel"
+    },
+    "desc": {
+      "id": "Berbaring telungkup, angkat dada sedikit, lalu gerakkan lengan melengkung dari depan ke samping paha dengan perlahan.",
+      "en": "Lie face down, lift your chest slightly, and sweep your arms in an arc from overhead to your thighs with control."
+    }
+  },
+  {
+    "id": "prone_y_raise",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Prone Y raise",
+      "en": "Prone Y raise"
+    },
+    "desc": {
+      "id": "Berbaring telungkup dengan lengan membentuk huruf Y di depan kepala. Angkat lengan sedikit dari lantai dengan menarik tulang belikat ke bawah, lalu turunkan.",
+      "en": "Lie face down with your arms in a Y shape overhead. Lift your arms slightly off the floor by pulling your shoulder blades down, then lower."
+    }
+  },
+  {
+    "id": "table_row",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Row di bawah meja",
+      "en": "Table inverted row"
+    },
+    "desc": {
+      "id": "Berbaring di bawah meja yang sangat kokoh dan pegang tepinya. Tarik dada ke arah meja dengan badan lurus, lalu turunkan perlahan. Pastikan meja tidak bergeser.",
+      "en": "Lie under a very sturdy table and grip its edge. Pull your chest toward the table with a straight body, then lower slowly. Make sure the table cannot move."
+    }
+  },
+  {
+    "id": "db_row",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Row satu lengan dumbbell",
+      "en": "One-arm dumbbell row"
+    },
+    "desc": {
+      "id": "Tumpukan satu tangan dan lutut di bangku. Tarik dumbbell ke arah pinggang dengan punggung tetap datar, lalu turunkan perlahan.",
+      "en": "Rest one hand and knee on a bench. Pull the dumbbell toward your waist with a flat back, then lower slowly."
+    }
+  },
+  {
+    "id": "db_curl",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "biceps",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Bicep curl dumbbell",
+      "en": "Dumbbell biceps curl"
+    },
+    "desc": {
+      "id": "Berdiri dengan dumbbell di sisi badan dan siku menempel. Tekuk siku untuk mengangkat beban, lalu turunkan perlahan tanpa mengayun.",
+      "en": "Stand with dumbbells at your sides and elbows tucked. Curl the weights up, then lower slowly without swinging."
+    }
+  },
+  {
+    "id": "db_hammer_curl",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "biceps",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Hammer curl dumbbell",
+      "en": "Dumbbell hammer curl"
+    },
+    "desc": {
+      "id": "Seperti bicep curl, tetapi telapak tangan saling berhadapan sepanjang gerakan.",
+      "en": "Like a biceps curl, but with your palms facing each other throughout the movement."
+    }
+  },
+  {
+    "id": "db_rear_fly",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "dumbbell",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Rear delt fly dumbbell",
+      "en": "Dumbbell rear delt fly"
+    },
+    "desc": {
+      "id": "Condongkan badan ke depan dengan punggung datar. Angkat dumbbell ke samping sampai sejajar badan, lalu turunkan perlahan. Pakai beban ringan.",
+      "en": "Hinge forward with a flat back. Raise the dumbbells out to the sides until level with your torso, then lower slowly. Use a light weight."
+    }
+  },
+  {
+    "id": "lat_pulldown",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Lat pulldown",
+      "en": "Lat pulldown"
+    },
+    "desc": {
+      "id": "Duduk dengan paha tertahan bantalan. Tarik bar ke dada bagian atas sambil menurunkan siku, lalu naikkan perlahan.",
+      "en": "Sit with your thighs secured under the pads. Pull the bar to your upper chest while driving your elbows down, then return slowly."
+    }
+  },
+  {
+    "id": "seated_cable_row",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Seated cable row",
+      "en": "Seated cable row"
+    },
+    "desc": {
+      "id": "Duduk tegak dengan kaki di penahan. Tarik pegangan ke perut sambil merapatkan tulang belikat, lalu kembali perlahan.",
+      "en": "Sit tall with your feet on the platform. Pull the handle to your stomach while squeezing your shoulder blades together, then return slowly."
+    }
+  },
+  {
+    "id": "assisted_pull_up",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Pull-up dengan mesin bantuan",
+      "en": "Assisted pull-up"
+    },
+    "desc": {
+      "id": "Pilih beban bantuan yang membuat gerakan terasa terkendali. Tarik badan sampai dagu mendekati bar, lalu turun perlahan.",
+      "en": "Choose an assistance weight that keeps the movement controlled. Pull until your chin nears the bar, then lower slowly."
+    }
+  },
+  {
+    "id": "face_pull",
+    "kind": "isolation",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Face pull kabel",
+      "en": "Cable face pull"
+    },
+    "desc": {
+      "id": "Tarik tali kabel setinggi wajah ke arah dahi dengan siku tinggi, lalu kembali perlahan. Pakai beban ringan.",
+      "en": "Pull a rope attachment at face height toward your forehead with high elbows, then return slowly. Use a light weight."
+    }
+  },
+  {
+    "id": "barbell_row",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Row barbel",
+      "en": "Barbell row"
+    },
+    "desc": {
+      "id": "Condongkan badan ke depan dengan punggung datar. Tarik barbel ke arah perut bagian bawah, lalu turunkan terkendali.",
+      "en": "Hinge forward with a flat back. Pull the barbell toward your lower stomach, then lower it with control."
+    }
+  },
+  {
+    "id": "pull_up",
+    "kind": "compound",
+    "category": "pull",
+    "muscle": "back",
+    "equipment": "gym",
+    "level": "advanced",
+    "timed": false,
+    "name": {
+      "id": "Pull-up",
+      "en": "Pull-up"
+    },
+    "desc": {
+      "id": "Gantung pada bar dengan tangan sedikit lebih lebar dari bahu. Tarik badan sampai dagu melewati bar, lalu turun perlahan.",
+      "en": "Hang from a bar with hands slightly wider than your shoulders. Pull until your chin clears the bar, then lower slowly."
+    }
+  },
+  {
+    "id": "bodyweight_squat",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Squat tanpa beban",
+      "en": "Bodyweight squat"
+    },
+    "desc": {
+      "id": "Berdiri selebar bahu. Dorong pinggul ke belakang dan turun seperti duduk, dengan lutut searah jari kaki dan dada tegak, lalu berdiri.",
+      "en": "Stand shoulder-width apart. Push your hips back and sit down, keeping your knees in line with your toes and chest tall, then stand up."
+    }
+  },
+  {
+    "id": "glute_bridge",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "glutes",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Glute bridge",
+      "en": "Glute bridge"
+    },
+    "desc": {
+      "id": "Berbaring telentang dengan lutut ditekuk. Dorong pinggul ke atas sampai badan lurus dari bahu ke lutut, tahan sebentar, lalu turunkan.",
+      "en": "Lie on your back with knees bent. Drive your hips up until your body is straight from shoulders to knees, hold briefly, then lower."
+    }
+  },
+  {
+    "id": "reverse_lunge",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Lunge ke belakang",
+      "en": "Reverse lunge"
+    },
+    "desc": {
+      "id": "Langkahkan satu kaki ke belakang dan turunkan lutut belakang mendekati lantai. Dorong dengan kaki depan untuk kembali, lalu ganti kaki.",
+      "en": "Step one foot back and lower your back knee toward the floor. Push through the front foot to return, then switch legs."
+    }
+  },
+  {
+    "id": "step_up",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Step-up",
+      "en": "Step-up"
+    },
+    "desc": {
+      "id": "Naikkan satu kaki ke bangku atau anak tangga yang kokoh, dorong badan naik dengan kaki itu, lalu turun terkendali. Ganti kaki.",
+      "en": "Place one foot on a sturdy bench or stair, drive up through that foot, then step down with control. Switch legs."
+    }
+  },
+  {
+    "id": "calf_raise",
+    "kind": "isolation",
+    "category": "legs",
+    "muscle": "calves",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Calf raise",
+      "en": "Calf raise"
+    },
+    "desc": {
+      "id": "Berdiri tegak, angkat tumit setinggi mungkin, tahan sebentar, lalu turunkan perlahan. Boleh berpegangan pada dinding.",
+      "en": "Stand tall, raise your heels as high as you can, hold briefly, then lower slowly. You can hold a wall for balance."
+    }
+  },
+  {
+    "id": "wall_sit",
+    "kind": "isolation",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": true,
+    "name": {
+      "id": "Wall sit",
+      "en": "Wall sit"
+    },
+    "desc": {
+      "id": "Sandarkan punggung ke dinding dan turun sampai paha hampir sejajar lantai. Tahan posisi selama waktu yang ditentukan.",
+      "en": "Lean your back against a wall and slide down until your thighs are nearly parallel to the floor. Hold for the set time."
+    }
+  },
+  {
+    "id": "single_leg_glute_bridge",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "glutes",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Glute bridge satu kaki",
+      "en": "Single-leg glute bridge"
+    },
+    "desc": {
+      "id": "Seperti glute bridge, tetapi satu kaki diangkat lurus. Dorong pinggul naik dengan kaki yang menapak, lalu ganti kaki.",
+      "en": "Like a glute bridge, but with one leg extended. Drive your hips up with the planted foot, then switch legs."
+    }
+  },
+  {
+    "id": "bulgarian_split_squat",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Bulgarian split squat",
+      "en": "Bulgarian split squat"
+    },
+    "desc": {
+      "id": "Letakkan kaki belakang di bangku. Turunkan lutut belakang mendekati lantai dengan badan tegak, lalu dorong naik. Ganti kaki.",
+      "en": "Rest your rear foot on a bench. Lower your back knee toward the floor with an upright torso, then drive up. Switch legs."
+    }
+  },
+  {
+    "id": "goblet_squat",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Goblet squat",
+      "en": "Goblet squat"
+    },
+    "desc": {
+      "id": "Peluk satu dumbbell di depan dada. Turun dalam posisi squat dengan dada tegak, lalu berdiri dengan mendorong lantai.",
+      "en": "Hold one dumbbell against your chest. Squat down with your chest tall, then stand by pushing through the floor."
+    }
+  },
+  {
+    "id": "db_rdl",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "hamstrings",
+    "equipment": "dumbbell",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Romanian deadlift dumbbell",
+      "en": "Dumbbell Romanian deadlift"
+    },
+    "desc": {
+      "id": "Berdiri dengan dumbbell di depan paha. Dorong pinggul ke belakang dengan punggung datar dan lutut sedikit menekuk, rasakan tarikan di paha belakang, lalu berdiri.",
+      "en": "Stand with dumbbells in front of your thighs. Push your hips back with a flat back and soft knees until you feel your hamstrings stretch, then stand."
+    }
+  },
+  {
+    "id": "db_lunge",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "dumbbell",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Lunge dumbbell",
+      "en": "Dumbbell lunge"
+    },
+    "desc": {
+      "id": "Pegang dumbbell di kedua sisi badan. Langkahkan satu kaki ke belakang, turunkan lutut belakang mendekati lantai, lalu kembali dan ganti kaki.",
+      "en": "Hold dumbbells at your sides. Step one foot back, lower your back knee toward the floor, then return and switch legs."
+    }
+  },
+  {
+    "id": "leg_press",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Leg press",
+      "en": "Leg press"
+    },
+    "desc": {
+      "id": "Duduk dengan punggung menempel sandaran. Dorong platform sampai kaki hampir lurus tanpa mengunci lutut, lalu kembali perlahan.",
+      "en": "Sit with your back against the pad. Press the platform until your legs are almost straight without locking your knees, then return slowly."
+    }
+  },
+  {
+    "id": "leg_extension",
+    "kind": "isolation",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Leg extension",
+      "en": "Leg extension"
+    },
+    "desc": {
+      "id": "Duduk di mesin dengan bantalan di atas pergelangan kaki. Luruskan lutut, tahan sebentar, lalu turunkan perlahan.",
+      "en": "Sit with the pad above your ankles. Straighten your knees, hold briefly, then lower slowly."
+    }
+  },
+  {
+    "id": "leg_curl",
+    "kind": "isolation",
+    "category": "legs",
+    "muscle": "hamstrings",
+    "equipment": "gym",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Leg curl",
+      "en": "Leg curl"
+    },
+    "desc": {
+      "id": "Atur mesin agar bantalan berada di atas tumit. Tekuk lutut untuk menarik bantalan, lalu kembali perlahan.",
+      "en": "Set the machine so the pad rests above your heels. Curl your knees to pull the pad, then return slowly."
+    }
+  },
+  {
+    "id": "back_squat",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "quads",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Back squat barbel",
+      "en": "Barbell back squat"
+    },
+    "desc": {
+      "id": "Letakkan barbel di punggung atas. Turun sampai paha sejajar lantai dengan dada tegak, lalu berdiri. Gunakan rak pengaman.",
+      "en": "Rest the barbell on your upper back. Squat until your thighs are parallel to the floor with a tall chest, then stand. Use safety racks."
+    }
+  },
+  {
+    "id": "hip_thrust",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "glutes",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Hip thrust barbel",
+      "en": "Barbell hip thrust"
+    },
+    "desc": {
+      "id": "Sandarkan punggung atas di bangku dengan barbel di pinggul. Dorong pinggul naik sampai badan lurus, tahan sebentar, lalu turunkan.",
+      "en": "Rest your upper back on a bench with the barbell over your hips. Drive your hips up until your body is straight, hold briefly, then lower."
+    }
+  },
+  {
+    "id": "deadlift",
+    "kind": "compound",
+    "category": "legs",
+    "muscle": "hamstrings",
+    "equipment": "gym",
+    "level": "advanced",
+    "timed": false,
+    "name": {
+      "id": "Deadlift",
+      "en": "Deadlift"
+    },
+    "desc": {
+      "id": "Berdiri dengan barbel di atas telapak kaki. Dengan punggung datar, angkat barbel dengan mendorong lantai sampai berdiri tegak, lalu turunkan terkendali.",
+      "en": "Stand with the barbell over your mid-foot. With a flat back, lift by pushing through the floor until you stand tall, then lower with control."
+    }
+  },
+  {
+    "id": "plank",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": true,
+    "name": {
+      "id": "Plank",
+      "en": "Plank"
+    },
+    "desc": {
+      "id": "Tumpukan siku dan ujung kaki dengan badan lurus dari kepala ke tumit. Kencangkan perut dan tahan tanpa melengkungkan punggung.",
+      "en": "Support yourself on your forearms and toes with a straight line from head to heels. Brace your abs and hold without sagging."
+    }
+  },
+  {
+    "id": "dead_bug",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Dead bug",
+      "en": "Dead bug"
+    },
+    "desc": {
+      "id": "Berbaring telentang, lengan dan lutut terangkat. Turunkan lengan dan kaki yang berlawanan secara perlahan sambil menjaga punggung bawah menempel lantai.",
+      "en": "Lie on your back with arms and knees raised. Slowly lower the opposite arm and leg while keeping your lower back on the floor."
+    }
+  },
+  {
+    "id": "bird_dog",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Bird dog",
+      "en": "Bird dog"
+    },
+    "desc": {
+      "id": "Posisi merangkak. Luruskan lengan kanan dan kaki kiri secara bersamaan, tahan sebentar, lalu ganti sisi tanpa memutar pinggul.",
+      "en": "Start on hands and knees. Extend your right arm and left leg together, hold briefly, then switch sides without rotating your hips."
+    }
+  },
+  {
+    "id": "crunch",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "beginner",
+    "timed": false,
+    "name": {
+      "id": "Crunch",
+      "en": "Crunch"
+    },
+    "desc": {
+      "id": "Berbaring dengan lutut ditekuk. Angkat bahu dari lantai dengan mengencangkan perut, lalu turunkan perlahan tanpa menarik leher.",
+      "en": "Lie with knees bent. Lift your shoulders off the floor by contracting your abs, then lower slowly without pulling on your neck."
+    }
+  },
+  {
+    "id": "mountain_climber",
+    "kind": "compound",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Mountain climber",
+      "en": "Mountain climber"
+    },
+    "desc": {
+      "id": "Mulai dari posisi push-up. Tarik lutut bergantian ke arah dada dengan ritme stabil dan pinggul tetap rendah.",
+      "en": "Start in a push-up position. Drive your knees toward your chest one at a time at a steady pace, keeping your hips low."
+    }
+  },
+  {
+    "id": "side_plank",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": true,
+    "name": {
+      "id": "Side plank",
+      "en": "Side plank"
+    },
+    "desc": {
+      "id": "Berbaring miring bertumpu pada siku. Angkat pinggul sampai badan lurus, tahan, lalu ganti sisi.",
+      "en": "Lie on your side propped on your elbow. Lift your hips until your body is straight, hold, then switch sides."
+    }
+  },
+  {
+    "id": "leg_raise",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Leg raise",
+      "en": "Leg raise"
+    },
+    "desc": {
+      "id": "Berbaring telentang dengan kaki lurus. Angkat kaki sampai tegak lurus lantai, lalu turunkan perlahan tanpa membuat punggung bawah melengkung.",
+      "en": "Lie on your back with straight legs. Raise them until vertical, then lower slowly without arching your lower back."
+    }
+  },
+  {
+    "id": "russian_twist",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "bodyweight",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Russian twist",
+      "en": "Russian twist"
+    },
+    "desc": {
+      "id": "Duduk dengan badan condong sedikit ke belakang. Putar badan ke kanan dan kiri dengan gerakan terkendali.",
+      "en": "Sit leaning back slightly. Rotate your torso to the right and left with control."
+    }
+  },
+  {
+    "id": "hanging_knee_raise",
+    "kind": "isolation",
+    "category": "core",
+    "muscle": "core",
+    "equipment": "gym",
+    "level": "intermediate",
+    "timed": false,
+    "name": {
+      "id": "Hanging knee raise",
+      "en": "Hanging knee raise"
+    },
+    "desc": {
+      "id": "Gantung pada bar. Angkat lutut ke arah dada dengan mengencangkan perut, lalu turunkan perlahan tanpa mengayun.",
+      "en": "Hang from a bar. Raise your knees toward your chest by tightening your abs, then lower slowly without swinging."
+    }
+  }
+]

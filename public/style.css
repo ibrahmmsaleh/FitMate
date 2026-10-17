@@ -1,0 +1,202 @@
+/* FitMate - gaya visual: papan latihan.
+   Kertas abu-hijau, tinta gelap, biru kobalt untuk aksi, kuning "lakban" hanya untuk penanda HARI INI. */
+
+:root {
+  --paper: #f2f4ee;
+  --surface: #ffffff;
+  --ink: #15202b;
+  --muted: #55626d;
+  --line: #cbd2c7;
+  --cobalt: #2447e2;
+  --cobalt-dark: #1a35b0;
+  --tape: #f4c430;
+  --good: #1b7f55;
+  --bad: #b7352b;
+  --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --measure: 66ch;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+.wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; margin: 0 0 .6rem; letter-spacing: .005em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-top: 2.5rem; }
+h3 { font-size: 1.35rem; }
+p { margin: 0 0 1rem; max-width: var(--measure); }
+a { color: var(--cobalt-dark); text-underline-offset: .18em; }
+a:hover { color: var(--ink); }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 2px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: .5rem; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.skip:focus { left: .5rem; }
+
+/* ---------- Header ---------- */
+.site-header { border-bottom: 2px solid var(--ink); background: var(--paper); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; padding-block: .8rem; }
+.brand {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1;
+  color: var(--ink); text-decoration: none; padding-bottom: .2rem; border-bottom: 6px solid var(--tape);
+}
+.nav { display: flex; flex-wrap: wrap; gap: .1rem 1.1rem; margin: 0; padding: 0; list-style: none; flex: 1; }
+.nav a { display: inline-block; padding: .4rem 0; color: var(--ink); text-decoration: none; font-weight: 500; border-bottom: 3px solid transparent; }
+.nav a:hover { border-bottom-color: var(--line); }
+.nav a[aria-current="page"] { border-bottom-color: var(--cobalt); font-weight: 700; }
+.tools { display: flex; align-items: center; gap: 1rem; }
+.lang { display: flex; gap: .15rem; font-size: .95rem; }
+.lang a, .lang strong { padding: .25rem .5rem; border-radius: 3px; text-decoration: none; }
+.lang a { color: var(--muted); }
+.lang strong { background: var(--ink); color: #fff; }
+
+/* ---------- Tombol dan formulir ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: .55rem 1.2rem; border-radius: 4px; border: 2px solid var(--cobalt);
+  background: var(--cobalt); color: #fff; font: 700 1rem var(--font-body); text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--cobalt-dark); border-color: var(--cobalt-dark); color: #fff; }
+.btn.secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.secondary:hover { background: var(--ink); color: #fff; }
+.btn.danger { background: transparent; color: var(--bad); border-color: var(--bad); }
+.btn.danger:hover { background: var(--bad); color: #fff; }
+.btn.small { min-height: 36px; padding: .3rem .8rem; font-size: .9rem; }
+.linklike { background: none; border: 0; padding: .4rem 0; color: var(--cobalt-dark); font: 500 1rem var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: .18em; }
+.linklike.danger { color: var(--bad); }
+.tools .linklike { color: var(--ink); }
+.inline { display: inline; margin: 0; }
+
+.form { background: var(--surface); border: 2px solid var(--ink); border-radius: 4px; padding: 1.5rem; max-width: 640px; }
+.field { margin-bottom: 1.1rem; }
+label, .label { display: block; font-weight: 700; margin-bottom: .3rem; }
+.hint { color: var(--muted); font-size: .9rem; margin: .25rem 0 0; }
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="search"], select, textarea {
+  width: 100%; min-height: 44px; padding: .5rem .7rem; font: inherit; color: var(--ink);
+  background: #fff; border: 2px solid #7d8a80; border-radius: 4px;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--cobalt); outline: 3px solid rgba(36, 71, 226, .25); outline-offset: 0; }
+.has-error input, .has-error select, .has-error textarea { border-color: var(--bad); }
+.field-error { color: var(--bad); font-weight: 500; margin: .3rem 0 0; font-size: .95rem; }
+.row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.check { display: flex; gap: .7rem; align-items: flex-start; font-weight: 400; }
+.check input { width: 22px; height: 22px; margin-top: .2rem; flex: none; }
+fieldset { border: 0; padding: 0; margin: 0 0 1.1rem; }
+legend { font-weight: 700; padding: 0; margin-bottom: .3rem; }
+.choices { display: flex; flex-wrap: wrap; gap: .5rem; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.choice span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: .4rem 1rem;
+  border: 2px solid #7d8a80; border-radius: 4px; background: #fff; font-weight: 500;
+}
+.choice input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
+.choice input:focus-visible + span { outline: 3px solid var(--cobalt); outline-offset: 2px; }
+
+/* ---------- Pesan ---------- */
+.flashes { margin-block: 1.2rem 0; display: grid; gap: .6rem; }
+.flash { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--ink); padding: .7rem 1rem; max-width: 640px; }
+.flash.success { border-left-color: var(--good); }
+.flash.error { border-left-color: var(--bad); }
+.notice { background: #fff6d6; border: 1px solid #e3cf86; border-left: 6px solid var(--tape); padding: .8rem 1rem; max-width: var(--measure); margin-bottom: 1.2rem; }
+
+/* ---------- Minggu latihan ---------- */
+.week { list-style: none; margin: 1rem 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: .5rem; }
+.day { background: var(--surface); border-top: 5px solid var(--line); position: relative; min-width: 0; }
+.day.is-on { border-top-color: var(--ink); }
+.day.is-today { border-top-color: var(--tape); outline: 2px solid var(--ink); outline-offset: -2px; border-top-width: 8px; }
+.day-link { display: flex; flex-direction: column; gap: .15rem; padding: .7rem .6rem .8rem; color: var(--ink); text-decoration: none; height: 100%; }
+a.day-link:hover { background: #eef1ff; }
+.day-name { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; line-height: 1; }
+.day-type { font-size: .9rem; color: var(--muted); line-height: 1.25; }
+.is-on .day-type { color: var(--ink); font-weight: 500; }
+.tape { align-self: flex-start; margin-top: .35rem; background: var(--tape); color: var(--ink); font-weight: 700; font-size: .8rem; padding: .05rem .45rem; }
+
+/* ---------- Tabel ---------- */
+.table-wrap { overflow-x: auto; position: relative; }
+table { border-collapse: collapse; width: 100%; background: var(--surface); }
+th, td { text-align: left; padding: .65rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { border-bottom: 2px solid var(--ink); font-weight: 700; white-space: nowrap; }
+td.num, th.num { white-space: nowrap; }
+.actions { display: flex; gap: .8rem; align-items: center; white-space: nowrap; }
+
+.session { margin-top: 2rem; scroll-margin-top: 1rem; }
+.session-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1rem; border-bottom: 2px solid var(--ink); padding-bottom: .3rem; }
+.session-head h3 { margin: 0; }
+.session-head .tape { margin: 0; }
+
+/* ---------- Halaman beranda ---------- */
+.hero { padding-block: 3rem 1rem; }
+.hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: .92; max-width: 14ch; margin-bottom: 1rem; }
+.hero .lead { font-size: 1.2rem; max-width: 52ch; }
+.cta { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.5rem 0 0; }
+.board { background: var(--surface); border: 2px solid var(--ink); border-radius: 4px; padding: 1.2rem 1.4rem 1.4rem; margin-top: 2rem; }
+.board h2 { margin-top: 0; font-size: 1.5rem; }
+.board .week { margin-top: .5rem; }
+.steps { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); counter-reset: step; }
+.steps li { counter-increment: step; border-top: 2px solid var(--ink); padding-top: .6rem; }
+.steps li::before { content: counter(step); font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 1; display: block; color: var(--cobalt); margin-bottom: .35rem; }
+.steps h3 { margin-bottom: .2rem; }
+
+/* ---------- Dashboard ---------- */
+.page-head { padding-block: 2rem .5rem; }
+.grid-2 { display: grid; gap: 2rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+.panel { background: var(--surface); border: 2px solid var(--ink); border-radius: 4px; padding: 1.2rem 1.4rem; }
+.panel h2 { margin-top: 0; font-size: 1.5rem; }
+.stat { font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 1; }
+.meter { height: 12px; background: var(--line); border-radius: 2px; overflow: hidden; margin: .6rem 0 .4rem; }
+.meter > span { display: block; height: 100%; background: var(--good); }
+.stack > * + * { margin-top: 1.4rem; }
+.list-plain { list-style: none; margin: 0; padding: 0; }
+.list-plain li { padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.list-plain li:last-child { border-bottom: 0; }
+.tag { display: inline-block; font-size: .85rem; padding: .05rem .5rem; border: 1px solid var(--ink); border-radius: 3px; margin-right: .3rem; }
+
+/* ---------- Pustaka latihan ---------- */
+.filters { display: grid; gap: .8rem 1rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); align-items: end; margin-bottom: 1.2rem; }
+.filters .field { margin: 0; }
+.ex-link { font-weight: 700; }
+
+/* ---------- Grafik ---------- */
+.chart { width: 100%; height: auto; display: block; background: var(--surface); border: 1px solid var(--line); }
+.chart-grid { stroke: var(--line); stroke-width: 1; }
+.chart-label { fill: var(--muted); font: 12px var(--font-body); }
+.chart-line { fill: none; stroke: var(--cobalt); stroke-width: 3; stroke-linejoin: round; }
+.chart-dot { fill: var(--cobalt); stroke: #fff; stroke-width: 2; }
+.chart-bar { fill: var(--cobalt); }
+
+/* ---------- Footer ---------- */
+.site-footer { margin-top: 4rem; border-top: 2px solid var(--ink); padding-block: 1.2rem 2rem; color: var(--muted); font-size: .92rem; }
+.site-footer p { margin-bottom: .5rem; }
+
+/* ---------- Layar kecil ---------- */
+@media (max-width: 760px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .week { grid-template-columns: 1fr; gap: .4rem; }
+  .day, .day.is-on, .day.is-today { border-top: 0; border-left: 6px solid var(--line); }
+  .day.is-on { border-left-color: var(--ink); }
+  .day.is-today { border-left-color: var(--tape); border-left-width: 10px; outline-offset: -2px; }
+  .day-link { flex-direction: row; align-items: center; gap: .8rem; padding: .55rem .8rem; }
+  .day-name { min-width: 3rem; font-size: 1.4rem; }
+  .tape { margin: 0 0 0 auto; align-self: center; }
+  .tools { width: 100%; justify-content: space-between; }
+  .hero { padding-top: 2rem; }
+  .col-log { display: none; }
+  th, td { padding: .6rem .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

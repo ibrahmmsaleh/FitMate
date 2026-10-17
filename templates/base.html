@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ t('app.tagline') }}{% endblock %} | FitMate</title>
+  <meta name="description" content="{{ t('home.lead') }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#content">{{ t('nav.skip') }}</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="{{ url_for('index') }}">FitMate</a>
+      <nav>
+        <ul class="nav">
+          {% if user %}
+            {% for endpoint, key in [('dashboard', 'nav.dashboard'), ('program', 'nav.program'), ('exercises', 'nav.exercises'), ('log', 'nav.log'), ('progress', 'nav.progress'), ('profile', 'nav.profile')] %}
+              <li><a href="{{ url_for(endpoint) }}"{% if request.endpoint == endpoint %} aria-current="page"{% endif %}>{{ t(key) }}</a></li>
+            {% endfor %}
+          {% else %}
+            <li><a href="{{ url_for('login') }}"{% if request.endpoint == 'login' %} aria-current="page"{% endif %}>{{ t('nav.login') }}</a></li>
+            <li><a href="{{ url_for('register') }}"{% if request.endpoint == 'register' %} aria-current="page"{% endif %}>{{ t('nav.register') }}</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="tools">
+        <div class="lang" role="group" aria-label="{{ t('nav.language') }}">
+          {% if lang == 'id' %}<strong>ID</strong>{% else %}<a href="{{ url_for('set_language', code='id') }}" hreflang="id" lang="id">ID</a>{% endif %}
+          {% if lang == 'en' %}<strong>EN</strong>{% else %}<a href="{{ url_for('set_language', code='en') }}" hreflang="en" lang="en">EN</a>{% endif %}
+        </div>
+        {% if user %}
+          <form class="inline" method="post" action="{{ url_for('logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="linklike" type="submit">{{ t('nav.logout') }}</button>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="wrap">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flashes" role="status">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>{{ t('disclaimer') }}</p>
+      {% if ephemeral %}<p>{{ t('storage.notice') }}</p>{% endif %}
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ t('log.edit_title') if editing else t('log.title') }}{% endblock %}
+{% block content %}
+  <div class="page-head"><h1>{{ t('log.edit_title') if editing else t('log.title') }}</h1></div>
+
+  <form class="form" method="post" action="{{ url_for('edit_log', log_id=log_id) if editing else url_for('log') }}" novalidate>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="row">
+      {{ m.input('date', t('log.date'), values.get('date'), errors, type='date', extra='max="' ~ today_iso ~ '" required') }}
+      <div class="field{% if errors.get('exercise_id') %} has-error{% endif %}">
+        <label for="f-exercise_id">{{ t('log.exercise') }}</label>
+        <select id="f-exercise_id" name="exercise_id" required{% if errors.get('exercise_id') %} aria-invalid="true" aria-describedby="err-exercise_id"{% endif %}>
+          <option value="">{{ t('log.choose') }}</option>
+          {% for label_key, items in groups %}
+            <optgroup label="{{ t(label_key) }}">
+              {% for ex in items %}
+                <option value="{{ ex.id }}"{% if values.get('exercise_id') == ex.id %} selected{% endif %}>{{ ex.name[lang] }}</option>
+              {% endfor %}
+            </optgroup>
+          {% endfor %}
+        </select>
+        {{ m.err(errors, 'exercise_id') }}
+      </div>
+    </div>
+    <div class="row">
+      {{ m.input('sets', t('log.sets'), values.get('sets'), errors, extra='inputmode="numeric" required') }}
+      {{ m.input('reps', t('log.reps'), values.get('reps'), errors, extra='inputmode="numeric" required') }}
+      {{ m.input('weight_kg', t('log.weight'), values.get('weight_kg'), errors, hint=t('log.weight_hint'), extra='inputmode="decimal"') }}
+    </div>
+    {{ m.input('note', t('log.note'), values.get('note'), errors, extra='maxlength="200"') }}
+    <div class="actions">
+      <button class="btn" type="submit">{{ t('log.submit') }}</button>
+      {% if editing %}<a href="{{ url_for('log') }}">{{ t('cancel') }}</a>{% endif %}
+    </div>
+  </form>
+
+  {% if not editing %}
+    <h2>{{ t('log.history') }}</h2>
+    {% if history %}
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>{{ t('log.col.date') }}</th><th>{{ t('log.col.exercise') }}</th><th>{{ t('log.col.result') }}</th><th>{{ t('log.col.actions') }}</th>
+          </tr></thead>
+          <tbody>
+            {% for row in history %}
+              <tr>
+                <td class="num">{{ fmt_date(row.date) }}</td>
+                <td>{{ exercise_label(row.exercise_id) }}{% if row.note %}<div class="muted small">{{ row.note }}</div>{% endif %}</td>
+                <td class="num">{{ row.sets }} × {{ row.reps }}{% if row.weight_kg > 0 %}, {{ row.weight_kg }} {{ t('unit.kg') }}{% endif %}</td>
+                <td>
+                  <div class="actions">
+                    <a href="{{ url_for('edit_log', log_id=row.id) }}">{{ t('edit') }}</a>
+                    <form class="inline" method="post" action="{{ url_for('delete_log', log_id=row.id) }}" onsubmit='return confirm({{ t("confirm.delete")|tojson }})'>
+                      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                      <button class="linklike danger" type="submit">{{ t('delete') }}</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small" style="margin-top:.6rem">{{ t('log.history_limit') }}</p>
+    {% else %}
+      <p class="muted">{{ t('log.none') }}</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}
